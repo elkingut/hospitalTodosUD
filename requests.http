@@ -1,0 +1,65 @@
+### Pacientes
+POST http://localhost:9000/api/pacientes HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "lauris",
+    "identificacion": "1027555555",
+    "apellido": "apellido",
+    "edad": "24",
+    "telefono": "900030"
+}
+
+###
+GET http://localhost:9000/api/pacientes HTTP/1.1
+
+###
+GET http://localhost:9000/api/pacientes/64b59d0ba3be214a739102d0 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/pacientes/64b59d0ba3be214a739102d0 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "pepeto",
+    "identificacion": "131313",
+    "apellido": "gutierrez",
+    "edad": "20",
+    "telefono": "92591220"
+}
+
+###
+DELETE http://localhost:9000/api/pacientes/64b59d0ba3be214a739102d0 HTTP/1.1
+
+### Doctores
+POST http://localhost:9000/api/doctores HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "david",
+    "apellido": "gutierrez",
+    "especialidad": ["medicina general, cardiologia"],
+    "consultorio": "101",
+    "correo": "micorreo@correo.co"
+}
+
+###
+GET http://localhost:9000/api/doctores HTTP/1.1
+
+###
+GET http://doctores:9000/api/doctores/64b59e28a3be214a739102d6 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/doctores/64b59d0ba3be214a739102d0 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "pedro",
+    "apellido": "gutierrez",
+    "especialidad": ["medicina general"],
+    "consultorio": "101",
+    "correo": "micorreo@correo.co"
+}
+
+###
+DELETE http://localhost:9000/api/pacientes/64b59e28a3be214a739102d6 HTTP/1.1

@@ -1,0 +1,40 @@
+# dotenv environment variables file
+.env
+.env.*
+
+# Yarn
+.pnp/
+.pnp.js
+.yarn-integrity
+
+# IDE config
+.vscode
+
+# dowload
+resources/files/download/*.csv
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Typescript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Build
+src/release
+src/migration
+
+# Logs
+logs
+*.log
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+logFileExecution.txt
