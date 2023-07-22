@@ -18,10 +18,14 @@ router.post('/pacientes', (req, res) => {
 
 // obtener todos los pacientes
 router.get('/pacientes', (req, res) => {
-    console.log(res);
+    console.log(res.statusCode);
     pacientesSchema
         .find()
-        .then((data: any) => res.json(data))
+        .then((data: any) => {
+            console.log(data);
+            const pacientes = data;
+            res.json({ pacientes });
+          })      
         .catch((error: any) => res.json({ message: error}));
 });
 
