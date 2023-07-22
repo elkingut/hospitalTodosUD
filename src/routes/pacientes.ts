@@ -18,6 +18,7 @@ router.post('/pacientes', (req, res) => {
 
 // obtener todos los pacientes
 router.get('/pacientes', (req, res) => {
+    console.log(res);
     pacientesSchema
         .find()
         .then((data: any) => res.json(data))
