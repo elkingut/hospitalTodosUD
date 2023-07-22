@@ -1,10 +1,10 @@
 import express from 'express';
-import pacientesSchema from '../models/pacientes';
+import pacientesSchema from '../models/crearPaciente';
 
-const router = express.Router();
+const   router = express.Router();
 
 // crear pacientes
-router.post('/pacientes', (req, res) => {
+router.post('/crear-pacientes', (req, res) => {
     const user = new pacientesSchema(req.body);
     const nombre = req.body.nombre;
     user
@@ -16,7 +16,7 @@ router.post('/pacientes', (req, res) => {
 });
 
 // obtener todos los pacientes
-router.get('/pacientes', (req, res) => {
+router.get('/obtener-pacientes', (req, res) => {
     pacientesSchema
         .find()
         .then((data: any) => res.json(data))
@@ -24,7 +24,7 @@ router.get('/pacientes', (req, res) => {
 });
 
 // obtener solo un paciente
-router.get('/pacientes/:id', (req, res) => {
+router.get('/obtener-paciente/:id', (req, res) => {
     const { id } = req.params;
     pacientesSchema
         .findById(id)
@@ -32,8 +32,17 @@ router.get('/pacientes/:id', (req, res) => {
         .catch((error: any) => res.json({ message: error}));
 });
 
+// obtener solo un paciente
+router.get('/obtener-paciente/:nombre', (req, res) => {
+    const { nombre } = req.params;
+    pacientesSchema
+     .find({ nombre })
+     .then((data: any) => res.json(data))
+     .catch((error: any) => res.json({ message: error }));
+  });
+
 // actualizar paciente
-router.put('/pacientes/:id', (req, res) => {
+router.put('/actualizar-paciente/:id', (req, res) => {
     const { id } = req.params;
     const { nombre, identificacion, apellido, edad, telefono } = req.body;
     pacientesSchema
@@ -43,7 +52,7 @@ router.put('/pacientes/:id', (req, res) => {
 });
 
 // eliminar paciente
-router.delete('/pacientes/:id', (req, res) => {
+router.delete('/eliminar-paciente/:id', (req, res) => {
     const { id } = req.params;
     pacientesSchema
         .deleteOne({_id: id })

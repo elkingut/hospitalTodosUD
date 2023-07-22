@@ -4,7 +4,7 @@ import doctoresSchema from '../models/doctores';
 const router = express.Router();
 
 // crear doctores
-router.post('/doctores', (req, res) => {
+router.post('/crear-doctor', (req, res) => {
     const user = new doctoresSchema(req.body);
     const nombre = req.body.nombre;
     user
@@ -16,7 +16,7 @@ router.post('/doctores', (req, res) => {
 });
 
 // obtener todos los doctores
-router.get('/doctores', (req, res) => {
+router.get('/obtener-doctores', (req, res) => {
     doctoresSchema
         .find()
         .then((data: any) => res.json(data))
@@ -24,7 +24,7 @@ router.get('/doctores', (req, res) => {
 });
 
 // obtener solo un doctor
-router.get('/doctores/:id', (req, res) => {
+router.get('/obtener-doctor/:id', (req, res) => {
     const { id } = req.params;
     doctoresSchema
         .findById(id)
@@ -33,7 +33,7 @@ router.get('/doctores/:id', (req, res) => {
 });
 
 // actualizar doctor
-router.put('/doctores/:id', (req, res) => {
+router.put('/actualizar-doctor/:id', (req, res) => {
     const { id } = req.params;
     const { nombre, identificacion, apellido, edad, telefono } = req.body;
     doctoresSchema
@@ -43,7 +43,7 @@ router.put('/doctores/:id', (req, res) => {
 });
 
 // eliminar doctor
-router.delete('/doctores/:id', (req, res) => {
+router.delete('/eliminar-doctor/:id', (req, res) => {
     const { id } = req.params;
     doctoresSchema
         .deleteOne({_id: id })

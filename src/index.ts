@@ -13,7 +13,7 @@ const MONGODB = "mongodb://localhost:27017/hospital" || process.env.MONGODB_URI;
 
 
 // Middleware para parsear los datos del formulario
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 // Middleware
 app.use(express.json());
@@ -25,7 +25,6 @@ app.use('/api', doctoresRoutes);
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/pages/index.html'));
   });
-
 
 // BD mongodb connection
 mongoose
