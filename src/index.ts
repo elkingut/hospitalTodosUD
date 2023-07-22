@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 import pacientesRoutes from './routes/pacientes';
 import doctoresRoutes from './routes/doctores';
 import path from 'path'
+import cors from 'cors'
 
 dotenv.config();
 const app = express();
@@ -16,15 +17,20 @@ const MONGODB = "mongodb://localhost:27017/hospital" || process.env.MONGODB_URI;
 // app.use(express.urlencoded({ extended: true }));
 
 // Middleware
-app.use(express.json());
+app.use(express.json({
+  type: "*/*"
+}));
+
+app.use(cors());
+
 app.use('/api', pacientesRoutes);
 app.use('/api', doctoresRoutes);
 
 // Rutas
 // Ruta para manejar la solicitud GET de la página HTML
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/pages/index.html'));
-  });
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/pages/index.html'));
+//   });
 
 // BD mongodb connection
 mongoose

@@ -1,5 +1,5 @@
 import express from 'express';
-import doctoresSchema from '../models/doctores';
+import doctoresSchema from '../models/crearDoctor';
 
 const router = express.Router();
 
