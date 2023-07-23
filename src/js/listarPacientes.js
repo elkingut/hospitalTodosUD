@@ -4,11 +4,10 @@ formElementBuscarPacientes.addEventListener("click", () => {
 
     fetch('http://localhost:9000/api/pacientes')
     .then(response => response.json())
-    .then(console.log)
     .then(data => {
             const pacientes = data.pacientes;
             const tabla = document.createElement("table");
-            const encabezados = ["Nombre", "Apellido", "Identificación", "Edad", "Teléfono"];
+            const encabezados = ["Nombre", "Apellido", "Identificacion", "Edad", "Telefono"];
             const filaEncabezados = document.createElement("tr");
             encabezados.forEach(encabezado => {
               const celdaEncabezado = document.createElement("th");

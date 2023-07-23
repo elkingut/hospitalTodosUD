@@ -22,9 +22,9 @@ router.get('/pacientes', (req, res) => {
     pacientesSchema
         .find()
         .then((data: any) => {
-            console.log(data);
             const pacientes = data;
             res.json({ pacientes });
+            console.log(pacientes);
           })      
         .catch((error: any) => res.json({ message: error}));
 });
@@ -43,7 +43,11 @@ router.get('/paciente/:nombre', (req, res) => {
     const { nombre } = req.params;
     pacientesSchema
      .find({ nombre })
-     .then((data: any) => res.json(data))
+     .then((data: any) => {
+        const pacientes = data;
+        res.json({ pacientes });
+        console.log(pacientes);
+      })      
      .catch((error: any) => res.json({ message: error }));
   });
 

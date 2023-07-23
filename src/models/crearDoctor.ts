@@ -8,7 +8,7 @@ const doctoresSchema = new mongoose.Schema({
         type: String,
     },
     especialidad: {
-        type: Array,
+        type: String,
     },
     consultorio: {
         type: String,

@@ -4,7 +4,7 @@ import doctoresSchema from '../models/crearDoctor';
 const router = express.Router();
 
 // crear doctores
-router.post('/crear-doctor', (req, res) => {
+router.post('/doctores', (req, res) => {
     const user = new doctoresSchema(req.body);
     const nombre = req.body.nombre;
     user
@@ -16,7 +16,7 @@ router.post('/crear-doctor', (req, res) => {
 });
 
 // obtener todos los doctores
-router.get('/obtener-doctores', (req, res) => {
+router.get('/doctores', (req, res) => {
     doctoresSchema
         .find()
         .then((data: any) => res.json(data))
